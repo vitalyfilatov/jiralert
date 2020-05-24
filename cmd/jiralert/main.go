@@ -93,6 +93,9 @@ func main() {
 		}
 		level.Debug(logger).Log("msg", "  matched receiver", "receiver", conf.Name)
 
+        level.Info(os.Getenv("JIRAUSER"))
+        level.Info(os.Getenv("JIRAPASS"))
+
 		// TODO: Consider reusing notifiers or just jira clients to reuse connections.
 		tp := jira.BasicAuthTransport{
 			// Username: conf.User,
