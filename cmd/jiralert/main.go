@@ -95,8 +95,10 @@ func main() {
 
 		// TODO: Consider reusing notifiers or just jira clients to reuse connections.
 		tp := jira.BasicAuthTransport{
-			Username: conf.User,
-			Password: string(conf.Password),
+			// Username: conf.User,
+			Username: os.Getenv("JIRAUSER"),
+			// Password: string(conf.Password),
+			Password: os.Getenv("JIRAPASS"),
 		}
 		client, err := jira.NewClient(tp.Client(), conf.APIURL)
 		if err != nil {
